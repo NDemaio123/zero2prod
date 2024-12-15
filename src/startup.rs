@@ -9,6 +9,10 @@ use actix_web::{
 };
 use sqlx::PgPool;
 
+/// The entry point to for the web server
+///
+/// * `listener`: The listener to use for the server
+/// * `db_pool`: A database connection pool
 pub fn run(listener: TcpListener, db_pool: PgPool) -> Result<Server, std::io::Error> {
     let db_pool = web::Data::new(db_pool);
     let server = HttpServer::new(move || {

@@ -14,6 +14,7 @@ pub struct DatabaseSettings {
 }
 
 impl DatabaseSettings {
+    /// Generate a string to connect to the postgres database
     pub fn connection_string(&self) -> String {
         format!(
             "postgres://{}:{}@{}:{}/{}",
@@ -22,6 +23,7 @@ impl DatabaseSettings {
     }
 }
 
+/// Returns the configuration options for the application from a configuration file
 pub fn get_configuration() -> Result<Settings, config::ConfigError> {
     let settings = config::Config::builder()
         .add_source(config::File::new(
