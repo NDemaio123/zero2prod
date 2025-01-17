@@ -16,10 +16,11 @@ impl EmailClient {
         base_url: &str,
         sender: SubscriberEmail,
         authorization_token: SecretString,
+        timeout: std::time::Duration,
     ) -> Result<Self, String> {
         let base_url = reqwest::Url::parse(base_url).map_err(|e| e.to_string())?;
         let http_client = Client::builder()
-            .timeout(std::time::Duration::from_secs(10))
+            .timeout(timeout)
             .build()
             .map_err(|e| e.to_string())?;
         Ok(Self {
@@ -114,7 +115,13 @@ mod test {
 
     fn email_client(base_url: &str) -> EmailClient {
         let authorization_token: String = Faker.fake();
-        EmailClient::parse(base_url, email(), SecretString::from(authorization_token)).unwrap()
+        EmailClient::parse(
+            base_url,
+            email(),
+            SecretString::from(authorization_token),
+            std::time::Duration::from_millis(200),
+        )
+        .unwrap()
     }
 
     #[tokio::test]
