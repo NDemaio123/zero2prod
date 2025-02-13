@@ -34,7 +34,7 @@ claims = "0.8"
 fake = "3"
 quickcheck = "1"
 quickcheck_macros = "1"
-rand = "0.9"
+rand = "0.8"
 
 [dependencies.sqlx]
 version = "0.8"
