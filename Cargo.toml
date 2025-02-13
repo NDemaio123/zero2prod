@@ -26,7 +26,7 @@ secrecy = { version = "0.10", features = ["serde"] }
 tracing-actix-web = "0.7"
 serde-aux = "4"
 unicode-segmentation = "1"
-validator = "0.19"
+validator = "0.20"
 
 [dev-dependencies]
 reqwest = "0.12"
@@ -34,7 +34,7 @@ claims = "0.8"
 fake = "3"
 quickcheck = "1"
 quickcheck_macros = "1"
-rand = "0.8"
+rand = "0.9"
 
 [dependencies.sqlx]
 version = "0.8"
