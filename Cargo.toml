@@ -30,10 +30,10 @@ validator = "0.20"
 
 [dev-dependencies]
 claims = "0.8"
-fake = "3"
+fake = "4"
 quickcheck = "1"
 quickcheck_macros = "1"
-rand = "0.8"
+rand = "0.9"
 wiremock = "0.6"
 serde_json = "1"
 
